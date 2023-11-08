@@ -68,7 +68,7 @@ export const authOptions = {
     },
   },
 
-  secret: "alsgPtjd11",
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(connectDB),
 };
 export default NextAuth(authOptions);

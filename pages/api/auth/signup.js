@@ -15,7 +15,7 @@ export default async function handler(request, answer) {
         const hash = await bcrypt.hash(request.body.password, 10);
         request.body.password = hash;
         await db.collection("user_cred").insertOne(request.body);
-        answer.status(200).json("가입완료");
+        answer.redirect(302, "/list");
       }
     } catch (error) {
       answer.status(500).json("서버오류입니다.");
