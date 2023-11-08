@@ -10,7 +10,8 @@ export default async function handler(request, answer) {
 
     try {
       if (find && find.email == request.body.email) {
-        answer.status(500).json("이미 존재하는 이메일 입니다.");
+        alert("이미 존재하는 이메일 입니다.");
+        answer.redirect(302, "/list");
       } else {
         const hash = await bcrypt.hash(request.body.password, 10);
         request.body.password = hash;
