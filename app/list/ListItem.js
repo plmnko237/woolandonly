@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-export default function ListItem({ result }) {
+export default async function ListItem({ result }) {
   return (
     <>
       {result.map((a, i) => (

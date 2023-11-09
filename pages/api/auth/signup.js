@@ -15,6 +15,7 @@ export default async function handler(request, answer) {
       } else {
         const hash = await bcrypt.hash(request.body.password, 10);
         request.body.password = hash;
+        request.body.role = user;
         await db.collection("user_cred").insertOne(request.body);
         answer.redirect(302, "/list");
       }
